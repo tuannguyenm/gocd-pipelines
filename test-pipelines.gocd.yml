@@ -24,7 +24,7 @@ pipelines:
             apply:
               tasks:
                 - exec:
-                    working_directory: node-express-dashboard/json
+                    working_directory: pipeline1/node-express-dashboard/json
                     command: touch
                     arguments:
                       - settings.json
@@ -33,7 +33,7 @@ pipelines:
             deploy:
               tasks:
                 - exec:
-                    working_directory: node-express-image-processing-server/test
+                    working_directory: pipeline2/node-express-image-processing-server/test
                     command: touch
                     arguments:
                       - mocha-config.js   
