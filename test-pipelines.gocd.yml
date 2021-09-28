@@ -1,33 +1,21 @@
-common:
-  username: &username test
-  encrypted_password: &password test
-  approval: &approval
-    type: manual
-    roles:
-      - dwh-admin
-
 pipelines:
   pipeline-lambda:
     display_order: 1
     environment_variables:
       DEBUG: ''
       IGNORE_DRIFT: false
-    group: maxsys2-dwh-report-npr
+    group: dwh-report
     materials:
       git_repo_1:
         branch: master
         destination: pipeline1
-        encrypted_password: *password
         git: https://github.com/tuannguyenm/node-express-dashboard.git
-        username: *username
         whitelist:
           - node-express-dashboard/json/settings.json
       git_repo_2:
         branch: master
         destination: pipeline2
-        encrypted_password: *password
         git: https://github.com/tuannguyenm/node-express-image-processing-server.git
-        username: *username
         whitelist:
           - node-express-image-processing-server/test/mocha-config.js
     stages:
